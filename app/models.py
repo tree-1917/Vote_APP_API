@@ -6,6 +6,8 @@ from sqlalchemy import Column, Integer, String, Boolean,ForeignKey
 from sqlalchemy.sql.expression import text
 from sqlalchemy.sql.sqltypes import TIMESTAMP
 from sqlalchemy.orm import relationship
+from sqlalchemy.dialects.postgresql import JSONB
+
 # Define a new class named Post, Which Create Posts Table in DB 
 class Post(Base):
     # Define the name of the database table associated with the Post class
@@ -32,6 +34,8 @@ class Post(Base):
 
     owner = relationship("User") # fetch data from Foreign Key Relationship and Return it 
     
+    json_data = Column(JSONB)
+
 # define a new class named User, Which Create a Users Table in DB.   
 class User(Base) : 
     __tablename__ = "users"
