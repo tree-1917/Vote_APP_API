@@ -13,10 +13,10 @@ db_user = os.getenv("DB_USER")
 db_password = os.getenv("DB_PASSWORD")
 db_host = os.getenv("DB_HOST")
 db_name = os.getenv("DB_NAME")
-
+db_url = os.getenv("DATABASE_URL")
 # Construct the SQLAlchemy database URL
-SQLALCHEMY_DATABASE_URL = f"{db_server}://{db_user}:{db_password}@{db_host}/{db_name}"
-
+# SQLALCHEMY_DATABASE_URL = f"{db_server}://{db_user}:{db_password}@{db_host}/{db_name}"
+SQLALCHEMY_DATABASE_URL = db_url
 # Create an SQLAlchemy Engine representing the connection to the database
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
